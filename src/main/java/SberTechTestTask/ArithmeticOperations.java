@@ -1,7 +1,6 @@
 package SberTechTestTask;
 
 import com.opencsv.CSVReader;
-import org.javatuples.Quartet;
 import java.io.FileReader;
 import java.util.Objects;
 
