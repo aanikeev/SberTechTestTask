@@ -38,7 +38,7 @@ public class ArithmeticOperations
             numberLong = Long.parseLong(number);
 
         } catch (NumberFormatException e) {
-            throw new Exception("Operand is not an integer. Position: " + stringId + " Value: " + number);
+            throw new Exception("Operand is not a Long type. Position: " + stringId + " Value: " + number);
         }
         return numberLong;
     }
