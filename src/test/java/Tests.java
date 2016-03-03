@@ -11,20 +11,6 @@ import ru.yandex.qatools.allure.annotations.Parameter;
 public class Tests
 {
     public static final String inputFile = Tests.class.getResource("source.csv").getPath();
-    Triple additionParams;
-    Triple subtractionParams;
-    Triple divisionParams;
-    Triple multiplicationParams;
-
-    @Before
-    public void precondition() throws Exception
-    {
-        additionParams = ArithmeticOperations.getOperationResult(inputFile, "+");
-        subtractionParams = ArithmeticOperations.getOperationResult(inputFile, "-");
-        divisionParams = ArithmeticOperations.getOperationResult(inputFile, "/");
-        multiplicationParams = ArithmeticOperations.getOperationResult(inputFile, "*");
-    }
-
 
     @Parameter("Operand 1")
     private Long firstOperand;
@@ -38,7 +24,7 @@ public class Tests
     @Test
     public void verifyAddition() throws Exception
     {
-        Triple operandsAndResult = additionParams;
+        Triple operandsAndResult = ArithmeticOperations.getOperationResult(inputFile, "+");
         this._setParameters(operandsAndResult);
         Long realResult = firstOperand + secondOperand;
         Assert.assertEquals(realResult, fileResult);
@@ -47,7 +33,7 @@ public class Tests
     @Test
     public void verifySubtraction() throws Exception
     {
-        Triple operandsAndResult = subtractionParams;
+        Triple operandsAndResult = ArithmeticOperations.getOperationResult(inputFile, "-");
         this._setParameters(operandsAndResult);
         Long realResult = firstOperand - secondOperand;
         Assert.assertEquals(realResult, fileResult);
@@ -56,7 +42,7 @@ public class Tests
     @Test
     public void verifyDivision() throws Exception
     {
-        Triple operandsAndResult = divisionParams;
+        Triple operandsAndResult = ArithmeticOperations.getOperationResult(inputFile, "/");
         this._setParameters(operandsAndResult);
         Long realResult = firstOperand / secondOperand;
         Assert.assertEquals(realResult, fileResult);
@@ -65,7 +51,7 @@ public class Tests
     @Test
     public void verifyMultiplication() throws Exception
     {
-        Triple operandsAndResult = multiplicationParams;
+        Triple operandsAndResult = ArithmeticOperations.getOperationResult(inputFile, "*");
         this._setParameters(operandsAndResult);
         Long realResult = firstOperand * secondOperand;
         Assert.assertEquals(realResult, fileResult);
